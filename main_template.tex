@@ -1,0 +1,189 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+  \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+  \setbeamercolor{page number in head/foot}{fg=black}
+
+} 
+% For creating backup slides so that total # slides exclude backup slides, but the backup is still numbered
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+% Packages
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tabto}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{anyfontsize}
+\usepackage{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{tikzsymbols}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{olive}{rgb}{0.3, 0.4, .1}
+\definecolor{fore}{RGB}{249,242,215}
+\definecolor{back}{RGB}{51,51,51}
+\definecolor{title}{RGB}{255,0,90}
+\definecolor{dgreen}{rgb}{0.,0.6,0.}
+\definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{JungleGreen}{cmyk}{0.99,0,0.52,0}
+\definecolor{BlueGreen}{cmyk}{0.85,0,0.33,0}
+\definecolor{RawSienna}{cmyk}{0,0.72,1,0.45}
+\definecolor{Magenta}{cmyk}{0,1,0,0}
+\usepackage{afterpage}
+
+%---------------------------------------------------------------------------
+%	TITLE PAGE
+%---------------------------------------------------------------------------
+\setbeamercolor{title}{fg=white}
+\title[JET MASS  IN Z + JETS]{\textbf{UNFOLDING THE JET MASS  IN Z + JETS EVENTS }} % The short title appears at the bottom of every slide, the full title is only on the title page
+\setbeamercolor{author}{fg=white}
+\author{Christine McLean, Ashley Parker and Salvatore Rappoccio} % Your name
+\setbeamercolor{institute}{fg=white}
+\institute[University at Buffalo] % Your institution as it will appear on the bottom of every slide.
+{
+\textcolor{white}{\textit{ash.marie.parker@gmail.com}} % Your email address
+}
+\setbeamercolor{date}{fg=white}
+\date{\today} % Date, can be changed to a custom date
+
+% To left align title page contents
+\makeatletter
+\setbeamertemplate{title page}[default][left,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\makeatother
+
+\begin{document}
+
+{
+%%%%%%%%% Uncomment the below line to use UB-CMS template
+\usebackgroundtemplate{\includegraphics[width = 13.3cm, height = 9.6cm]{background/UB_background_title.pdf}}
+%%%%%%%%% Uncomment the below line to use UB template
+% \usebackgroundtemplate{\includegraphics[width = 13.3cm, height = 9.6cm]{background/UBTemplate_titlepage.pdf}}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+  }
+
+%---------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%---------------------------------------------------------------------------
+% setting background
+%%%%%%%%% Uncomment the two lines below to use UB-CMS template
+\usebackgroundtemplate{\includegraphics[width = 12.8cm, height = 9.9cm]{background/background.pdf}}
+\setbeamertemplate{frametitle}[default][center]% making all frame titles centered
+
+%%%%%%%%% Uncomment the three lines below to use UB template
+% \usebackgroundtemplate{\includegraphics[width = 12.8cm, height = 9.9cm]{background/UBTemplate_background.pdf}}
+% \setbeamertemplate{frametitle}[default][left]% making all frame titles centered
+% \setbeamercolor{frametitle}{fg=white}
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Overview}}
+\vspace{3.5mm}
+Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Introduction}}
+\vspace{3.5mm}
+
+\begin{itemize}
+  \item Your introduction goes here!
+  \item Use \texttt{itemize} to organize your main points.
+\end{itemize}
+
+\vskip 1cm
+
+\begin{block}{Examples}
+Some examples of commonly used commands and features are included, to help you get started.
+\end{block}
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+\section{Some \LaTeX{} Examples}
+
+\subsection{Tables and Figures}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Tables and Figures}}
+\vspace{3.5mm}
+\begin{itemize}
+\item Use \texttt{tabular} for basic tables --- see Table~\ref{tab:widgets}, for example.
+\item You can upload a figure (JPEG, PNG or PDF) using the files menu. 
+\item To include it in your document, use the \texttt{includegraphics} command (see the comment below in the source code).
+\end{itemize}
+
+% Commands to include a figure:
+%\begin{figure}
+%\includegraphics[width=\textwidth]{your-figure's-file-name}
+%\caption{\label{fig:your-figure}Caption goes here.}
+%\end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r}
+Item & Quantity \\\hline
+Widgets & 42 \\
+Gadgets & 13
+\end{tabular}
+\caption{\label{tab:widgets}An example table.}
+\end{table}
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+\subsection{Mathematics}
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Readable Mathematics}}
+\vspace{3.5mm}
+Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i$$
+denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+{\usebackgroundtemplate{}
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}}
+\appendix
+\backupbegin
+
+%----------------------------------------------------------------------------------------
+% {\usebackgroundtemplate{}
+% \begin{frame}
+% \Huge{\centerline{Backup}}
+% \end{frame}}
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Extra Stuff}}
+\vspace{3.5mm}
+Something I wanted to keep in backup because I thought it was cool.
+\end{frame}
+%----------------------------------------------------------------------------------------
+\backupend
+
+\end{document}

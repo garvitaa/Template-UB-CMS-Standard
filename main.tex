@@ -56,13 +56,13 @@
 %	TITLE PAGE
 %---------------------------------------------------------------------------
 \setbeamercolor{title}{fg=white}
-\title[Your Short Title]{\textbf{YOUR PRESENTATION}} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[JET MASS  IN Z + JETS]{\textbf{UNFOLDING THE JET MASS  IN Z + JETS EVENTS }} % The short title appears at the bottom of every slide, the full title is only on the title page
 \setbeamercolor{author}{fg=white}
-\author{You} % Your name
+\author{Christine McLean, Ashley Parker and Salvatore Rappoccio} % Your name
 \setbeamercolor{institute}{fg=white}
 \institute[University at Buffalo] % Your institution as it will appear on the bottom of every slide.
 {
-\textcolor{white}{\textit{username@buffalo.edu}} % Your email address
+\textcolor{white}{\textit{ash.marie.parker@gmail.com}} % Your email address
 }
 \setbeamercolor{date}{fg=white}
 \date{\today} % Date, can be changed to a custom date
@@ -98,72 +98,328 @@
 % \setbeamertemplate{frametitle}[default][left]% making all frame titles centered
 % \setbeamercolor{frametitle}{fg=white}
 %----------------------------------------------------------------------------------------
-\begin{frame}{\textbf{Overview}}
+\begin{frame}{\textbf{CMS AN-18-240}}
 \vspace{3.5mm}
-Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\begin{itemize}
+\item A Measurement of normalized double differential jet production cross section in Z + Jet events :
+\item[] $$ \frac{1}{ \frac{d\sigma}{dp_{T}} }   \frac{d^2\sigma}{dp_{T} dm}  (\frac{1}{GeV})  $$
+\item We use TUnfoldDensity to perform 2D unfolding:
+\item[] $$ ( p_{T} , [ m_u || m_g ] ) $$
+\item We compare the ungroomed and groomed jet masses (9 combinations of the soft-drop parameters)
+\item Today we show a preview of our preliminary results for 2017 data
+\item Plan to publish this fall with 2016/2017/2018 or some subset of that data
+\end{itemize}
 \end{frame}
 %----------------------------------------------------------------------------------------
-
-\section{Introduction}
-%----------------------------------------------------------------------------------------
-\begin{frame}{\textbf{Introduction}}
-\vspace{3.5mm}
-
+\begin{frame}{\textbf{Motivation}}
+\vspace{.9mm}
+\centering
+Jet Mass : A simple observable for testing QCD
+\begin{figure}
+\centering
+\includegraphics[scale=.27]{jet.png}
+\includegraphics[scale=.25]{jetcalc.png}
+\end{figure}
 \begin{itemize}
-  \item Your introduction goes here!
-  \item Use \texttt{itemize} to organize your main points.
+
+\item Understand evolution of the “jet” function in perturbative QCD
+\item Improve modeling of jets in Monte Carlo generators
+
 \end{itemize}
 
-\vskip 1cm
 
-\begin{block}{Examples}
-Some examples of commonly used commands and features are included, to help you get started.
+\end{frame}
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Event Selection}}
+\vspace{.9mm}
+\centering
+\begin{figure}
+\centering
+\includegraphics[scale=.35]{zjetevent.png}
+\end{figure}
+
+
+
+ \begin{block}{Summary}
+\begin{itemize}
+  \item At least 1 Anti-Kt $R = 0.8$ Jet, $P_T > 200 GeV $,  $|\eta| < 2.5 $, $dR(Jet, Lepton) > 0.8 $  
+  \item 2 opposite sign, same flavor leptons, $|\eta| < 2.4 $
+  \item Sum of the 2 leptons gives the Z candidate, $P_T > 90 GeV$,  $d\phi(Z, Jet) > 1.57$  
+
+\end{itemize}
+
 \end{block}
 
+
+
+
+
+
+
 \end{frame}
-%----------------------------------------------------------------------------------------
-\section{Some \LaTeX{} Examples}
 
-\subsection{Tables and Figures}
+
+
 
 %----------------------------------------------------------------------------------------
-\begin{frame}{\textbf{Tables and Figures}}
-\vspace{3.5mm}
+
+
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Event Selection}}
+
+\begin{block}{Muons}
 \begin{itemize}
-\item Use \texttt{tabular} for basic tables --- see Table~\ref{tab:widgets}, for example.
-\item You can upload a figure (JPEG, PNG or PDF) using the files menu. 
-\item To include it in your document, use the \texttt{includegraphics} command (see the comment below in the source code).
+  \item ISO     : PF relative Isolation 0.4 $< 0.25$ 
+  \item ID      : Medium cut based ID 
+  \item Trigger : IsoMu27 ($P_T > 29 GeV$)
 \end{itemize}
 
-% Commands to include a figure:
+\end{block}
+
+\begin{block}{Electrons}
+\begin{itemize}
+  \item ISO     : None
+  \item ID      : Medium cut based ID 
+  \item Trigger : $Ele35_WPTight_Gsf OR Photon200$  ($P_T > 37 GeV$)
+\end{itemize}
+
+\end{block}
+
+
+
+\end{frame}
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+
+
+
+\section{Unfolding}
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{Response Matrix}}
+\vspace{.5mm}
+%N
+
+\begin{itemize}
+  \item Normalized by Reconstructed (Y axis) $P_T$ bin
+  \item Mass binning on X axis (Coarse/Output) :
+  \item $[0.0, 10.0, 20.0, 40.0, 60.0, 80.0, 100.0, 150.0, 200.0, 13000.0]$
+\end{itemize}
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=.25]{Jun25_unfoldPlots_sdB0/aResponseMatrix_NormalizedbyPtbin.png}
+\end{figure}
+
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+%\section{Some \LaTeX{} Examples}
+
+%------------------
+\begin{frame}{\textbf{Purity and Stability of Binning Scheme}}
+
+
+
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/PurityandStability_200_260.png}%
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/PurityandStability_260_350.png}
+\newline
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/PurityandStability_350_460.png}%
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/PurityandStability_460_550.png}
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/PurityandStability_550_13000.png}
+
+
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+\subsection{Input Distributions}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}{\textbf{2017 Input MC}}
+
+
+
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin200to260_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin260to350_Detbinning_Groomingis_sdB0.png}
+\newline
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin350to460_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin460to550_Detbinning_Groomingis_sdB0.png}
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin550to13000_Detbinning_Groomingis_sdB0.png}
+%\begin{columns}[t]
+%        \column{.5\textwidth}
+%        \includegraphics[width=\columnwidth,height=1cm]%{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin200to260_Detbinning_Groomingis_sdB0.png}
+        %\captionof{figure}{foo}
+%        \includegraphics[width=\columnwidth,height=1cm]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin260to350_Detbinning_Groomingis_sdB0.png}        
+%        %\captionof{figure}{bar}
+%        \column{.5\textwidth}
+%        \includegraphics[width=\columnwidth,height=1cm]%{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin350to460_Detbinning_Groomingis_sdB0.png}        
+%        %\captionof{figure}{foo}
+%        \includegraphics[width=\columnwidth,height=1cm]%{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin460to550_Detbinning_Groomingis_sdB0.png}        
+%$        %\captionof{figure}{bar}%
+%
+        %\captionof{figure}{foo}
+%\end{columns}
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+%\includegraphics[width=\columnwidth,height=3cm]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin550to13000_Detbinning_Groomingis_sdB0.png} 
 %\begin{figure}
-%\includegraphics[width=\textwidth]{your-figure's-file-name}
-%\caption{\label{fig:your-figure}Caption goes here.}
+%5\centering
+%\includegraphics[scale=.27]{Jun25_unfoldPlots_sdB0/InputlocalrecobinnedMC_mass_Ptbin550to13000_Detbinning_Groomingis_sdB0.png}
 %\end{figure}
 
-\begin{table}
+
+
+\subsection{Closure}
+
+%------------------
+\begin{frame}{\textbf{2017 MC Closure Test}}
+
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/Output_NoReg_MC_ptbin1MC_mass_Ptbin200to260_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/Output_NoReg_MC_ptbin2MC_mass_Ptbin260to350_Detbinning_Groomingis_sdB0.png}
+\newline
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/Output_NoReg_MC_ptbin3MC_mass_Ptbin350to460_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/Output_NoReg_MC_ptbin4MC_mass_Ptbin460to550_Detbinning_Groomingis_sdB0.png}
+\includegraphics[width=0.3333\textwidth]{Jun25_unfoldPlots_sdB0/Output_NoReg_MC_ptbin5MC_mass_Ptbin550to13000_Detbinning_Groomingis_sdB0.png}
+
+
+
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+%------------------
+\begin{frame}{\textbf{2017 Data and MC Luminosities}}
+
+ \begin{table}
 \centering
 \begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
+Drell-Yan HT bin (GeV) & Fraction of Data Luminosity (41.3 $fb^(-1)$)\\\hline
+100-200 & 2.1 \\
+200-400 & 5.6 \\
+400-600 & 33.9 \\
+600-800 & 111.0 \\
+800-1200 & 87.8 \\
+1200-2500 & 817.8 \\
+2500-Inf & 2685.28 \\
+
+
 \end{tabular}
-\caption{\label{tab:widgets}An example table.}
+\caption{\label{tab:datamclumi} The ratio of effective luminosity in data as compared to MC where $ L = \sigma * N_{events}$.}
 \end{table}
+ 
+ 
+
+
 
 \end{frame}
 %----------------------------------------------------------------------------------------
-\subsection{Mathematics}
+%------------------
+\begin{frame}{\textbf{Systematic Uncertanties}}
+\begin{itemize}
+  \item Used TUnfoldSys to propogate uncertanties 
+  \item Input response matrices filled with observables shifted up and down 1 $\sigma$ from nominal 
+  \item  Physics Model, JEC, JER, JMR, JMS, PU, PDF
+  \item Compare to Dijet uncertanties from SMP-16-10 on next slides
+\end{itemize}
+
+\begin{block}{Ongoing Work}
+\begin{itemize}
+  \item Statistical uncertainy estimation using jacknife resampling
+  \item Updating to Fall17\_17Nov2017\_V32 JECs 
+  \item Adding extension samples to Drell-Yan signal MC in increase statistics
+\end{itemize}
+
+\end{block}
+
+
+\end{frame}
 %----------------------------------------------------------------------------------------
-\begin{frame}{\textbf{Readable Mathematics}}
+
+%------------------
+\begin{frame}{\textbf{Systematic Uncertanties: Z+Jets and DiJets}}
+
+\vspace{.5mm}
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/AllSystematics_FractionofUnfoldedBinContent_ptbin2MC_mass_Ptbin200to260_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.4\textwidth]{dijet200.png}
+\newline
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/AllSystematics_FractionofUnfoldedBinContent_ptbin3MC_mass_Ptbin260to350_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.4\textwidth]{dijet260.png}
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+%------------------
+\begin{frame}{\textbf{Systematic Uncertanties: Z+Jets and DiJets}}
+
+
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/AllSystematics_FractionofUnfoldedBinContent_ptbin4MC_mass_Ptbin350to460_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.4\textwidth]{dijet350.png}
+\newline
+\includegraphics[width=0.5\textwidth]{Jun25_unfoldPlots_sdB0/AllSystematics_FractionofUnfoldedBinContent_ptbin5MC_mass_Ptbin460to550_Detbinning_Groomingis_sdB0.png}%
+\includegraphics[width=0.4\textwidth]{dijet460.png}
+
+%\includegraphics[width=0.5\textwidth]{fff}
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+%------------------
+\begin{frame}{\textbf{Systematic Uncertanties: Z+Jets and DiJets}}
+
+
+\includegraphics[width=0.55\textwidth]{Jun25_unfoldPlots_sdB0/AllSystematics_FractionofUnfoldedBinContent_ptbin6MC_mass_Ptbin550to13000_Detbinning_Groomingis_sdB0.png}%
+\newline
+\includegraphics[width=1\textwidth]{dijet550andup.png}
+\newline
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}{\textbf{Summary : AN-18-240}}
 \vspace{3.5mm}
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i$$
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+\begin{itemize}
+\item A Measurement of normalized double differential jet production cross section in Z + Jet events :
+\item[] $$ \frac{1}{ \frac{d\sigma}{dp_{T}} }   \frac{d^2\sigma}{dp_{T} dm}  (\frac{1}{GeV})  $$
 
+\item Method is complete and systematic uncertanites are understood
+\item Plan to publish this fall with 2016/2017/2018 or some subset of that data
+
+
+
+
+\end{itemize}
 \end{frame}
+
+
 %----------------------------------------------------------------------------------------
 
 {\usebackgroundtemplate{}
@@ -181,7 +437,7 @@ denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{
 %----------------------------------------------------------------------------------------
 \begin{frame}{\textbf{Extra Stuff}}
 \vspace{3.5mm}
-Something I wanted to keep in backup because I thought it was cool.
+%Something I wanted to keep in backup because I thought it was cool.
 \end{frame}
 %----------------------------------------------------------------------------------------
 \backupend
